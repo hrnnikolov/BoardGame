@@ -1,0 +1,38 @@
+import random
+Range={'Health':200,'Damage':60,'Crit':5,'Dodge':5,'Regen':10}
+Melee={'Health':300,'Damage':30,'Crit':0,'Dodge':10,'Regen':20}
+Boss1={'Health':200,'Damage':10}
+def HeroAtack():
+  a=random.randint(0,100)
+  if a>Hero['Crit']:
+    Atack=Hero['Damage']
+  else:
+    Atack=Hero['Damage']*1.2
+  return Atack
+def Showstats(Heroclass):
+# print(f'Stats of {Heroclass}')
+ for i in Heroclass:
+  print(i,Heroclass[i])
+while 1==1:
+  x=input('Chose your class: Range or Melee: ')
+  #x='Range'
+  if x=='Range':
+   Hero=Range
+   Showstats(Range)
+   break
+  if x=='Melee':
+   Hero=Melee
+   Showstats(Melee)
+   break
+print('You encounter the first Boss')
+Showstats(Boss1)
+while Boss1['Health'] >0:
+ y=input('Chose your move: (A)tack or (R)egen: ') 
+ if y=='A':
+  Atack=HeroAtack()
+  print(f'Your Atack is {Atack}')
+  Boss1['Health']=Boss1['Health']-Atack
+  print('Boss HP: ',Boss1['Health'])
+ else:
+   print('n')
+print('Boss1 Deafeated')
